@@ -11,7 +11,7 @@ def data_frame_organise(input):
     del df["DateTime"]
     df = df.between_time('10:00', '15:30')
     df = df.resample("100ms").mean()
-    df = df.fillna(method='ffill')  # Forward fill
+    df = df.fillna(method='ffill')  
     df["Price"] = df["Price"]/10000
     df["Mid"] = (df["Ask_Price_Level_1"] + df["Bid_Price_Level_1"]) /2
     df["Spread"] = df["Ask_Price_Level_1"] - df["Bid_Price_Level_1"]
@@ -30,7 +30,7 @@ def data_frame_organise(input):
 def create_image_updown_vol(t,lookback,df):
     
     height = 50
-    width = 3 * lookback # lookback = 1s
+    width = 3 * lookback 
     grid = np.zeros((height,width))
     width = width + 2
     origin = df.iloc[t]["Price"]
@@ -120,7 +120,7 @@ def create_image_updown_price(t,lookback,df):
 def create_image_updown_vol_mid(t,lookback,df):
     
     height = 50
-    width = 3 * lookback # lookback = 1s
+    width = 3 * lookback 
     grid = np.zeros((height,width))
     width = width + 2
     origin = df.iloc[t]["Price"]
@@ -164,7 +164,7 @@ def create_image_updown_vol_mid(t,lookback,df):
 def create_image_updown_vol_mid_triple_l10(t,lookback,df):
     
     height = 50
-    width = lookback # lookback = 1s
+    width = lookback 
     grid = np.zeros((height,width,3))
     width = width + 2
     origin = df.iloc[t]["Price"]
@@ -207,7 +207,7 @@ def create_image_updown_vol_mid_triple_l10(t,lookback,df):
 def create_image_updown_vol_mid_triple_l5(t,lookback,df):
     
     height = 35
-    width = lookback # lookback = 1s
+    width = lookback 
     grid = np.zeros((height,width,3))
     width = width + 2
     origin = df.iloc[t]["Price"]
@@ -252,7 +252,7 @@ def create_image_updown_vol_mid_triple_l5(t,lookback,df):
 def create_image_updown_vol_mid_triple_l3(t,lookback,df):
     
     height = 25
-    width = lookback # lookback = 1s
+    width = lookback 
     grid = np.zeros((height,width,3))
     width = width + 2
     origin = df.iloc[t]["Price"]
